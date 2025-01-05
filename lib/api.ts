@@ -24,8 +24,6 @@ export function saveCustomer(customer: Customer): void {
   localStorage.setItem(customer.id, JSON.stringify({name: customer.name, email: customer.email}));
 }
 
-// Previously this was a synchronous function that just called localStorage.removeItem()
-// Changed to Promise to properly handle potential errors
 export function deleteCustomer(customerId: string): Promise<void> {
   return new Promise<void>((resolve, reject) => {
     try {
